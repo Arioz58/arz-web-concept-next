@@ -11,6 +11,7 @@ import ARZ from "@/assets/logo-arz.svg";
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  console.log(isSticky);
 
   useEffect(() => {
     const handleScroll = () => {
