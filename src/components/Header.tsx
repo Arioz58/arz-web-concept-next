@@ -87,7 +87,7 @@ const Header = () => {
     <header className="fixed w-screen z-50">
       <nav className="py-4 flex items-center justify-between max-w-xl mx-auto">
         <a href="#home">
-          <Image src={ARZ} alt="Logo" width={70} />
+          <Image src={ARZ} alt="Logo" width={70} height={40} />
         </a>
         <ul className="flex gap-5 text-white">
           <li>
