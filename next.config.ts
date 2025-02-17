@@ -1,14 +1,19 @@
 import type { NextConfig } from "next";
 
+/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  webpack: (config) => {
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      issuer: /\.[jt]sx?$/, // Assure que seul JS/TSX utilise SVGR
-      use: ["@svgr/webpack"],
+      use: ['@svgr/webpack']
     });
     return config;
   },
-};
+  images: {
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  }
+}
 
 export default nextConfig;
