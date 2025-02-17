@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { default as Chat } from "@/assets/mobile_nav/Chat_Conversation.svg";
-import { default as Home } from "@/assets/mobile_nav/House_01.svg";
-import { default as Services } from "@/assets/mobile_nav/Handbag.svg";
-import { default as About } from "@/assets/mobile_nav/Info.svg";
-import { default as ARZ } from "@/assets/logo-arz.svg";
+import Chat from "@/assets/mobile_nav/Chat_Conversation.svg";
+import Home from "@/assets/mobile_nav/House_01.svg";
+import Services from "@/assets/mobile_nav/Handbag.svg";
+import About from "@/assets/mobile_nav/Info.svg";
+import ARZ from "@/assets/logo-arz.svg";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -39,7 +39,7 @@ const Header = () => {
           <li>
             <a href="#home">
               <Image
-                src={Home}
+                src="/assets/mobile_nav/House_01.svg"
                 alt="Home"
                 width={34}
                 height={34}
