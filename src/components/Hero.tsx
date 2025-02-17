@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Image from "next/image";
-import ArzLogo from "@/assets/logo-arz.svg";
 
 const heading = "ARZ Web Concept";
 const paragraph1 = "Votre Vision,";
@@ -110,7 +109,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.1 , ease: [0, 0.68, 0.18, 1] }}
         >
           <Image
-            src={ArzLogo}
+            src='/assets/mobile_nav/logo-arz.svg'
             alt="ARZ Web Concept"
             width={60}
             height={50}

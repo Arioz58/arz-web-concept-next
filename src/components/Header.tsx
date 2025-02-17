@@ -2,11 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Chat from "@/assets/mobile_nav/Chat_Conversation.svg";
-import Home from "/assets/mobile_nav/House_01.svg";
-import Services from "@/assets/mobile_nav/Handbag.svg";
-import About from "@/assets/mobile_nav/Info.svg";
-import ARZ from "@/assets/logo-arz.svg";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -39,7 +34,7 @@ const Header = () => {
           <li>
             <a href="#home">
               <Image
-                src={Home}
+                src="/assets/mobile_nav/House_01.svg"
                 alt="Home"
                 width={34}
                 height={34}
@@ -50,7 +45,7 @@ const Header = () => {
           <li>
             <a href="#about">
               <Image
-                src={About}
+                src="/assets/mobile_nav/Info.svg"
                 alt="About"
                 width={34}
                 height={34}
@@ -61,7 +56,7 @@ const Header = () => {
           <li>
             <a href="#services">
               <Image
-                src={Services}
+                src="/assets/mobile_nav/Handbag.svg"
                 alt="Services"
                 width={34}
                 height={34}
@@ -72,7 +67,7 @@ const Header = () => {
           <li>
             <a href="#contact">
               <Image
-                src={Chat}
+                src="/assets/mobile_nav/Chat_Conversation.svg"
                 alt="Chat"
                 width={34}
                 height={34}
@@ -87,7 +82,7 @@ const Header = () => {
     <header className="fixed w-screen z-50">
       <nav className="py-4 flex items-center justify-between max-w-xl mx-auto">
         <a href="#home">
-          <Image src={ARZ} alt="Logo" width={70} height={40} />
+          <Image src="/assets/mobile_nav/logo-arz.svg" alt="Logo" width={70} height={40} />
         </a>
         <ul className="flex gap-5 text-white">
           <li>
