@@ -128,7 +128,7 @@ export default function Hero() {
             variants={{
               visible: { transition: { staggerChildren: 0.05 } },
             }}
-            className="mt-3 text-3xl tracking-tight font-bold"
+            className="mt-3 text-3xl lg:text-4xl tracking-tight font-bold"
           >
             {headingChars.map((char, index) => (
               <motion.span
@@ -145,7 +145,7 @@ export default function Hero() {
         initial={{ translateY: 70, scale: 0.75, opacity: 0 }}
         animate={{ translateY: 0, scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, delay:1, ease: [0, 0.68, 0.18, 1] }}
-        className="flex flex-col items-center justify-center mt-5 font-secondary text-3xl">
+        className="flex flex-col items-center justify-center mt-5 font-secondary text-3xl lg:text-4xl">
           <motion.p
             initial="hidden"
             whileInView="visible"
@@ -194,7 +194,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay:1, ease: [0, 0.68, 0.18, 1] }}
             whileInView="visible"
             onClick={() => setShowForm(true)}
-            className="text-white py-1 px-14 flex justify-center items-center bg-gradient-to-r from-white/40 to-white/45 backdrop-blur-[10px] border border-[#DFDFDF] rounded-[15px] text-xl hover:shadow-[0_0_30px_rgba(255,255,255,0.295)] transition-all duration-500 ease-[cubic-bezier(0,0.68,0.18,1)]"
+            className="text-white py-1 px-14 flex justify-center items-center bg-gradient-to-r from-white/40 to-white/45 backdrop-blur-[10px] border border-[#DFDFDF] rounded-[15px] text-xl lg:text-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.295)] transition-all duration-500 ease-[cubic-bezier(0,0.68,0.18,1)]"
           >
             Contact.
             <AnimatePresence>
@@ -232,8 +232,9 @@ export default function Hero() {
             </AnimatePresence>
           </motion.button>
         ) : (
+          <div className="w-full flex flex-col items-center px-5">
           <motion.form
-            className="relative flex flex-col gap-4 bg-white/10 backdrop-blur-[10px] p-4 rounded-[1rem] w-full max-w-[330px] z-10 contact-before"
+            className="relative flex flex-col gap-4 bg-white/10 backdrop-blur-[10px] p-4 rounded-[1rem] w-full min-w-[300px] max-w-[550px] z-10 contact-before"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
@@ -241,23 +242,23 @@ export default function Hero() {
           >
             <motion.input
               type="text"
-              placeholder="Nom"
+              placeholder="Nom et Prénom"
               value={formData.name}
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
               required
-              className="input text-[12px]"
+              className="input text-xs"
             />
             <motion.input
               type="email"
-              placeholder="Email"
+              placeholder="Adresse Email"
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
               required
-              className="input text-[12px]"
+              className="input text-xs"
             />
             <motion.textarea
               placeholder="Message"
@@ -266,24 +267,25 @@ export default function Hero() {
                 setFormData({ ...formData, message: e.target.value })
               }
               required
-              className="input min-h-[150px] resize-y text-[12px]"
+              className="input min-h-[150px] resize-y text-xs"
             />
             <div className="flex gap-4 justify-end">
               <motion.button
                 type="submit"
-                className="px-6 py-2 rounded-lg bg-white/10 text-white border border-white/20 cursor-pointer transition-all duration-300 ease-in-out text-[12px] hover:bg-white/20"
+                className="px-6 py-2 rounded-lg bg-white/10 text-white border border-white/20 cursor-pointer transition-all duration-300 ease-in-out text-xs hover:bg-white/20"
               >
                 Envoyer
               </motion.button>
               <motion.button
                 type="button"
-                className="px-6 py-2 rounded-lg bg-white/10 text-white border border-white/20 cursor-pointer transition-all duration-300 ease-in-out text-[12px] hover:bg-white/20"
+                className="px-6 py-2 rounded-lg bg-white/10 text-white border border-white/20 cursor-pointer transition-all duration-300 ease-in-out text-xs hover:bg-white/20"
                 onClick={() => setShowForm(false)}
               >
                 Annuler
               </motion.button>
             </div>
           </motion.form>
+          </div>
         )}
       </AnimatePresence>
       <AnimatePresence>
