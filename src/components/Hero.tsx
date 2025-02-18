@@ -55,7 +55,7 @@ export default function Hero() {
   const buttonChars = splitStringUsingRegex(buttonText);
 
   const [showForm, setShowForm] = useState(false);
-  //const [showSuccess, setShowSuccess] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -65,7 +65,7 @@ export default function Hero() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setShowForm(false);
-    //setShowSuccess(true);
+    setShowSuccess(true);
     emailjs
       .send(
         "service_xd9dldt",
@@ -77,13 +77,13 @@ export default function Hero() {
         () => {
           setFormData({ name: "", email: "", message: "" });
           setTimeout(() => {
-            //setShowSuccess(false);
+            setShowSuccess(false);
           }, 5000);
         },
         (error) => {
           console.log("Failed to send email:", error);
           setShowForm(true);
-          //setShowSuccess(false);
+          setShowSuccess(false);
         }
       );
   };
@@ -287,7 +287,7 @@ export default function Hero() {
         )}
       </AnimatePresence>
       <AnimatePresence>
-        {true && (
+        {showSuccess && (
           <motion.div
             className="fixed w-[300px] top-[40%] flex flex-col items-center justify-center bg-black/80 backdrop-blur-[10px] border border-[#4ab71b44] p-8 rounded-2xl z-[999] text-center"
             initial={{ scale: 0.3, opacity: 0 }}
