@@ -90,7 +90,7 @@ export default function Hero() {
 
   return (
     <motion.div
-      className="h-screen w-full flex flex-col items-center justify-center text-white"
+      className="h-svh w-full flex flex-col items-center justify-center text-white"
       id="home"
       initial={{
         background:
