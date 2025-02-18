@@ -296,7 +296,7 @@ export default function Hero() {
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
           >
             <svg
-              className="w-[56] h-[56] rounded-full stroke-3 stroke-[#4bb71b] mb-[10%]"
+              className="w-14 h-14 rounded-full stroke-3 stroke-[#4bb71b] mb-[10%]"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 52 52"
             >
