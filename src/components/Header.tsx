@@ -79,21 +79,21 @@ const Header = () => {
       </nav>
     </header>
   ) : (
-    <header className="fixed w-screen z-50">
-      <nav className="py-4 flex items-center justify-between max-w-xl mx-auto">
+    <header className={`fixed w-screen z-20 mt-3`}>
+      <nav className={`py-4 flex items-center justify-between max-w-xl mx-auto rounded-2xl transition-all duration-200 ease-in-out px-2 ${isSticky ? "backdrop-blur-md bg-white/10 border border-[#474747] max-w-lg" : ""}`}>
         <a href="#home">
           <Image src="/assets/mobile_nav/logo-arz.svg" alt="Logo" width={70} height={40} />
         </a>
         <ul className="flex gap-5 text-white">
           <li>
-            <a href="#about" className="">
-              À propos.
-            </a>
+        <a href="#about" className="">
+          À propos.
+        </a>
           </li>
           <li>
-            <a href="#services" className="">
-              Services.
-            </a>
+        <a href="#services" className="">
+          Services.
+        </a>
           </li>
         </ul>
       </nav>
