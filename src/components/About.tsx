@@ -81,8 +81,7 @@ export default function About() {
     >
       <div className="sticky" ref={contentRef} id="content">
         {" "}
-        {/*here*/}
-        <h2 className="text-3xl sticky top-0">À propos.</h2>
+        <h2 className="text-3xl lg:text-4xl sticky">À propos.</h2>
         <div
           id="grid"
           className="grid grid-cols-2 grid-rows-2 gap-2 m-2 pt-5 group sticky max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg"
