@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ServicesBg from "@/assets/services.png";
-import arzLogo from "@/assets/logo-arz.svg";
 import tempTFTM from "@/assets/TFTM.png";
 import tempINdex from "@/assets/INdex.png";
 import tempHouse from "@/assets/House.png";
@@ -55,7 +54,7 @@ export default function Services() {
           <div className="text-white z-10 p-2 ">
             <h2 className="text-3xl lg:text-4xl sticky text-center mb-10">Services.</h2>
             <div className="mx-auto my-2 backdrop-blur-md rounded-[60px] bg-gradient-to-r from-white/15 to-white/00 border border-white/10 p-2 md:p-4 md:rounded-[80px]">
-              <Image src={arzLogo} alt="Arz Logo" className="opacity-30" width={70} height={70} />
+              <Image src="/assets/mobile_nav/logo-arz.svg" alt="Logo" className="opacity-30" width={70} height={70} />
               <p className="text-center text-2xl">Site Web</p>
               <motion.div
                 key={currentImageIndex}
