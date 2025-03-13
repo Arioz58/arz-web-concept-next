@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "ARZ Web Concept",
-  description: "Bienvenue sur ARZ Web Concept, votre partenaire expert en développement web. Nous créons des sites internet modernes, performants et adaptés à vos besoins, tout en offrant des solutions personnalisées pour booster votre présence en ligne. Découvrez nos services en création de sites vitrine, e-commerce, applications web et SEO. Contactez-nous pour donner vie à vos projets numériques !",
+  description:
+    "Bienvenue sur ARZ Web Concept, votre partenaire expert en développement web. Nous créons des sites internet modernes, performants et adaptés à vos besoins, tout en offrant des solutions personnalisées pour booster votre présence en ligne. Découvrez nos services en création de sites vitrine, e-commerce, applications web et SEO. Contactez-nous pour donner vie à vos projets numériques !",
 };
 
 export default function RootLayout({
