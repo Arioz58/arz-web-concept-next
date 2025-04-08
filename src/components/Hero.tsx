@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const heading = "ARZ Web Concept";
 const paragraph1 = "Votre Vision,";
-const paragraph2 = "Notre Creation.";
+const paragraph2 = "Notre Création.";
 const buttonText = "Contact.";
 
 const charVariants = {
@@ -128,7 +128,7 @@ export default function Hero() {
             variants={{
               visible: { transition: { staggerChildren: 0.05 } },
             }}
-            className="mt-3 text-3xl lg:text-4xl tracking-tight font-bold"
+            className="mt-3 text-3xl lg:text-4xl xl:text-5xl tracking-tight font-bold"
           >
             {headingChars.map((char, index) => (
               <motion.span
@@ -145,7 +145,7 @@ export default function Hero() {
           initial={{ translateY: 70, scale: 0.75, opacity: 0 }}
           animate={{ translateY: 0, scale: 1, opacity: 1 }}
           transition={{ duration: 0.5, delay: 1, ease: [0, 0.68, 0.18, 1] }}
-          className="flex flex-col items-center justify-center mt-5 font-secondary text-3xl lg:text-4xl"
+          className="flex flex-col items-center justify-center mt-5 font-secondary text-3xl lg:text-4xl xl:text-5xl"
         >
           <motion.p
             initial="hidden"
@@ -195,7 +195,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 1, ease: [0, 0.68, 0.18, 1] }}
             whileInView="visible"
             onClick={() => setShowForm(true)}
-            className="text-white py-1 px-14 flex justify-center items-center bg-gradient-to-r from-white/40 to-white/45 backdrop-blur-[10px] border border-[#DFDFDF] rounded-[15px] text-xl lg:text-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.295)] transition-all duration-500 ease-[cubic-bezier(0,0.68,0.18,1)]"
+            className="text-white py-1 px-14 flex justify-center items-center bg-gradient-to-r from-white/40 to-white/45 backdrop-blur-[10px] border border-[#DFDFDF] rounded-[15px] text-xl lg:text-2xl xl:text-3xl hover:shadow-[0_0_30px_rgba(255,255,255,0.295)] transition-all duration-500 ease-[cubic-bezier(0,0.68,0.18,1)]"
           >
             Contact.
             <AnimatePresence>
