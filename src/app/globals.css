@@ -44,7 +44,7 @@ body{
   padding: 1px;
 }
 
-#about p{
+#about p, #services p{
   font-family: 'Poppins', sans-serif;
 }
 
