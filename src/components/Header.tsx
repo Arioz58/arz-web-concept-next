@@ -92,9 +92,9 @@ const Header = () => {
       }}
     >
       <nav
-        className={`py-2 flex items-center justify-between max-w-2xl mx-auto rounded-full transition-all duration-200 ease-in-out px-4 ${
+        className={`py-2 flex items-center justify-between max-w-[750px] mx-auto rounded-full transition-all duration-200 ease-in-out px-4 ${
           isSticky
-            ? "backdrop-blur-md bg-white/10 border border-[#474747] max-w-lg"
+            ? "backdrop-blur-md bg-white/10 border border-[#474747] max-w-[620px]"
             : ""
         }`}
       >
@@ -115,6 +115,11 @@ const Header = () => {
           <li>
             <a href="#services" className="">
               Services.
+            </a>
+          </li>
+          <li>
+            <a href="https://calendar.app.google/Fna5VVKRe1197BgD6" className="bg-[#eeeeee] border border-[#2b2b2b] p-2 py-1 rounded-full text-[#2b2b2b]">
+              Réserver un appel
             </a>
           </li>
         </ul>

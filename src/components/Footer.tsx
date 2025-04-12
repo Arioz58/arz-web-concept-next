@@ -15,7 +15,7 @@ const charGlowVariants = {
     filter: "blur(5px)",
     willChange: "filter, opacity, transform",
     x: 0,
-    y: 0
+    y: 0,
   },
   visible: {
     display: "inline-block",
@@ -26,7 +26,7 @@ const charGlowVariants = {
     textShadow:
       "0 0 10px rgb(243, 251, 255), 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255), 0 0 40px rgb(255, 255, 255)",
     x: 0,
-    y: 0
+    y: 0,
   },
   exit: {
     display: "inline-block",
@@ -34,7 +34,7 @@ const charGlowVariants = {
     filter: "blur(5px)",
     willChange: "filter, opacity, transform",
     x: 0,
-    y: 0
+    y: 0,
   },
 };
 
@@ -79,56 +79,64 @@ export default function Footer() {
       <div className="overflow-hidden w-full h-72 flex justify-center items-center absolute -top-0 left-0 -z-10 mt-40">
         <div className="w-72 h-72 rounded-full border-[20px] border-blue-600 relative blur-lg -bottom-[50%] md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]"></div>
       </div>
-    <div className="w-full h-full flex flex-row justify-center items-center text-3xl overflow-hidden whitespace-nowrap relative mt-10 [mask-image:linear-gradient(to_right,transparent,black,transparent_100%)]  lg:[mask-image:linear-gradient(to_right,transparent_25%,black,transparent_75%)]">
-      <motion.div 
-        className="flex flex-row"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-        duration: 15,
-        ease: "linear",
-        repeat: Infinity,
-        }}
-      >
-        {[...Array(12)].map((_, index) => (
-        <p key={index} className="flex items-center">
-          Contactez-nous&nbsp;&nbsp;
-          <FontAwesomeIcon 
-            icon={faArrowDown} 
-            className="icon animate-bounce"
-          />
-          &nbsp;&nbsp;
-        </p>
-        ))}
-      </motion.div>
-      <motion.div 
-        className="flex flex-row"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-        duration: 15,
-        ease: "linear",
-        repeat: Infinity,
-        }}
-      >
-        {[...Array(12)].map((_, index) => (
-        <p key={index} className="flex items-center">
-          Contactez-nous&nbsp;&nbsp;
-          <FontAwesomeIcon 
-            icon={faArrowDown} 
-            className="icon animate-bounce"
-          />
-          &nbsp;&nbsp;
-        </p>
-        ))}
-      </motion.div>
-    </div>
+      <div className="w-full h-full flex flex-row justify-center items-center text-3xl overflow-hidden whitespace-nowrap relative mt-10 [mask-image:linear-gradient(to_right,transparent,black,transparent_100%)]  lg:[mask-image:linear-gradient(to_right,transparent_25%,black,transparent_75%)]">
+        <motion.div
+          className="flex flex-row"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 15,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        >
+          {[...Array(12)].map((_, index) => (
+            <p key={index} className="flex items-center">
+              Contactez-nous&nbsp;&nbsp;
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                className="icon animate-bounce"
+              />
+              &nbsp;&nbsp;
+            </p>
+          ))}
+        </motion.div>
+        <motion.div
+          className="flex flex-row"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            duration: 15,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        >
+          {[...Array(12)].map((_, index) => (
+            <p key={index} className="flex items-center">
+              Contactez-nous&nbsp;&nbsp;
+              <FontAwesomeIcon
+                icon={faArrowDown}
+                className="icon animate-bounce"
+              />
+              &nbsp;&nbsp;
+            </p>
+          ))}
+        </motion.div>
+      </div>
       <AnimatePresence>
         {!showForm ? (
           <div className="w-full flex justify-center">
             {" "}
             <motion.button
-              initial={{ translateY: 70, scale: 0.75, opacity: 0 }}
-              animate={{ translateY: 0, scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1, ease: [0, 0.68, 0.18, 1] }}
+            initial={{ translateY: 70, scale: 0.75, opacity: 0 }}
+            animate={{ translateY: 0, scale: 1, opacity: 1 }}
+            transition={{
+            opacity: { duration: 0.1, delay: 0.3 },
+            translateY: { duration: 0.2, delay: 0.2 },
+            scale: { duration: 0.2, delay: 0.2 },
+            type: "spring",
+            stiffness: 300,
+            damping: 15,
+            delay: 0.2,
+            }}
               whileInView="visible"
               onClick={() => setShowForm(true)}
               className="text-white py-1 px-14 flex justify-center items-center bg-gradient-to-r from-white/40 to-white/45 backdrop-blur-[10px] border border-[#DFDFDF] rounded-[15px] text-xl lg:text-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.295)] transition-all duration-500 ease-[cubic-bezier(0,0.68,0.18,1)] mt-10 "

@@ -189,14 +189,22 @@ export default function Hero() {
       </div>
       <AnimatePresence>
         {!showForm ? (
-          <motion.button
+            <motion.button
             initial={{ translateY: 70, scale: 0.75, opacity: 0 }}
             animate={{ translateY: 0, scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1, ease: [0, 0.68, 0.18, 1] }}
+            transition={{
+            opacity: { duration: 0.1, delay: 0.3 },
+            translateY: { duration: 0.2, delay: 0.2 },
+            scale: { duration: 0.2, delay: 0.2 },
+            type: "spring",
+            stiffness: 300,
+            damping: 15,
+            delay: 0.2,
+            }}
             whileInView="visible"
             onClick={() => setShowForm(true)}
             className="text-white py-1 px-14 flex justify-center items-center bg-gradient-to-r from-white/40 to-white/45 backdrop-blur-[10px] border border-[#DFDFDF] rounded-[15px] text-xl lg:text-2xl xl:text-3xl hover:shadow-[0_0_30px_rgba(255,255,255,0.295)] transition-all duration-500 ease-[cubic-bezier(0,0.68,0.18,1)]"
-          >
+            >
             Contact.
             <AnimatePresence>
               <div
