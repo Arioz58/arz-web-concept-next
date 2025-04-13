@@ -8,9 +8,18 @@ import {
 
 export default function Faq() {
   return (
-    <section id="faq" className="flex flex-col justify-center items-center text-white">
-        <h1 className="text-3xl text-center mt-10">Les questions les plus fréquentes.</h1>
-      <Accordion type="single" collapsible className="w-[80vw] md:w-[630px] mt-10 mb-10">
+    <section
+      id="faq"
+      className="flex flex-col justify-center items-center text-white"
+    >
+      <h1 className="text-3xl lg:text-4xl text-center mt-10">
+        Les questions les plus fréquentes.
+      </h1>
+      <Accordion
+        type="single"
+        collapsible
+        className="w-[80vw] md:w-[630px] mt-10 mb-10"
+      >
         <AccordionItem
           value="item-1"
           className="border-b-[1px] border-b-white/40"
@@ -47,9 +56,9 @@ export default function Faq() {
           </AccordionTrigger>
           <AccordionContent>
             Nos tarifs varient selon vos besoins. Un site vitrine commence à
-            partir de 500~700€, tandis qu&apos;un site plus complexe peut aller jusqu&apos;à
-            plusieurs milliers d&apos;euros. Nous proposons toujours un devis
-            personnalisé et transparent, sans surprise.
+            partir de 500~700€, tandis qu&apos;un site plus complexe peut aller
+            jusqu&apos;à plusieurs milliers d&apos;euros. Nous proposons
+            toujours un devis personnalisé et transparent, sans surprise.
           </AccordionContent>
         </AccordionItem>
       </Accordion>

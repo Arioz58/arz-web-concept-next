@@ -92,9 +92,9 @@ const Header = () => {
       }}
     >
       <nav
-        className={`py-2 flex items-center justify-between max-w-[750px] mx-auto rounded-full transition-all duration-200 ease-in-out px-4 ${
+        className={`py-2 flex items-center justify-between max-w-[760px] mx-auto rounded-full transition-all duration-200 ease-in-out px-2 ${
           isSticky
-            ? "backdrop-blur-md bg-white/10 border border-[#474747] max-w-[620px]"
+            ? "backdrop-blur-md bg-white/10 border border-[#474747] max-w-[600px]"
             : ""
         }`}
       >
