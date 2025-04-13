@@ -12,6 +12,14 @@ export default function Faq() {
       id="faq"
       className="flex flex-col justify-center items-center text-white"
     >
+      <video
+        src="/assets/videos/logo-animated.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-[100px] h-auto"
+      />
       <h1 className="text-3xl lg:text-4xl text-center mt-10">
         Les questions les plus fréquentes.
       </h1>
