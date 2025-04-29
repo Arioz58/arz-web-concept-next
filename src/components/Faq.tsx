@@ -20,9 +20,9 @@ export default function Faq() {
         playsInline
         className="w-[100px] h-auto"
       />
-      <h1 className="text-3xl lg:text-4xl text-center mt-10">
+      <h2 className="text-3xl lg:text-4xl text-center mt-10">
         Les questions les plus fréquentes.
-      </h1>
+      </h2>
       <Accordion
         type="single"
         collapsible
