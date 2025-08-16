@@ -175,11 +175,80 @@ export default function Footer() {
           </div>
         ) : (
           <div className="w-full flex flex-col items-center px-5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              role="presentation"
+              style={{ display: "none" }}
+            >
+              <filter
+                id="glass-distortion"
+                x="0%"
+                y="0%"
+                width="100%"
+                height="100%"
+                filterUnits="objectBoundingBox"
+              >
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.001 0.005"
+                  numOctaves="1"
+                  seed="17"
+                  result="turbulence"
+                />
+                <feComponentTransfer in="turbulence" result="mapped">
+                  <feFuncR
+                    type="gamma"
+                    amplitude="1"
+                    exponent="10"
+                    offset="0.5"
+                  />
+                  <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+                  <feFuncB
+                    type="gamma"
+                    amplitude="0"
+                    exponent="1"
+                    offset="0.5"
+                  />
+                </feComponentTransfer>
+                <feGaussianBlur
+                  in="turbulence"
+                  stdDeviation="3"
+                  result="softMap"
+                />
+                <feSpecularLighting
+                  in="softMap"
+                  surfaceScale="5"
+                  specularConstant="1"
+                  specularExponent="100"
+                  lightingColor="white"
+                  result="specLight"
+                >
+                  <fePointLight x="-200" y="-200" z="300" />
+                </feSpecularLighting>
+                <feComposite
+                  in="specLight"
+                  operator="arithmetic"
+                  k1="0"
+                  k2="1"
+                  k3="1"
+                  k4="0"
+                  result="litImage"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="softMap"
+                  scale="200"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                />
+              </filter>
+            </svg>
             <motion.form
-              className="relative flex flex-col gap-4 bg-white/10 backdrop-blur-[10px] p-4 rounded-[1rem] w-full min-w-[300px] max-w-[550px] z-10 contact-before mt-5"
+              className="relative flex flex-col gap-4 p-4 rounded-[1rem] w-full min-w-[300px] max-w-[550px] z-10 bg-transparent liquid-glass"
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0}}
               exit={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
               onSubmit={handleSubmit}
             >
               <motion.input
@@ -190,7 +259,7 @@ export default function Footer() {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 required
-                className="input text-xs"
+                className="input text-xs z-10"
               />
               <motion.input
                 type="email"
@@ -200,7 +269,7 @@ export default function Footer() {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 required
-                className="input text-xs"
+                className="input text-xs z-10"
               />
               <motion.textarea
                 placeholder="Message"
@@ -209,18 +278,18 @@ export default function Footer() {
                   setFormData({ ...formData, message: e.target.value })
                 }
                 required
-                className="input min-h-[150px] resize-y text-xs"
+                className="input min-h-[150px] resize-y text-xs z-10"
               />
               <div className="flex gap-4 justify-end">
                 <motion.button
                   type="submit"
-                  className="px-6 py-2 rounded-lg bg-white/10 text-white border border-white/20 cursor-pointer transition-all duration-300 ease-in-out text-xs hover:bg-white/20"
+                  className="px-6 py-2 rounded-lg bg-white/10 text-white border border-white/20 cursor-pointer transition-all duration-300 ease-in-out text-xs hover:bg-white/20 z-10"
                 >
                   Envoyer
                 </motion.button>
                 <motion.button
                   type="button"
-                  className="px-6 py-2 rounded-lg bg-white/10 text-white border border-white/20 cursor-pointer transition-all duration-300 ease-in-out text-xs hover:bg-white/20"
+                  className="px-6 py-2 rounded-lg bg-white/10 text-white border border-white/20 cursor-pointer transition-all duration-300 ease-in-out text-xs hover:bg-white/20 z-10"
                   onClick={() => setShowForm(false)}
                 >
                   Annuler
