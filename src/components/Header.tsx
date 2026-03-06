@@ -98,17 +98,6 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="#about">
-              <Image
-                src="/assets/mobile_nav/Info.svg"
-                alt="About"
-                width={34}
-                height={34}
-                className="filter invert-[1] brightness-[85%]"
-              />
-            </a>
-          </li>
-          <li>
             <a href="#services">
               <Image
                 src="/assets/mobile_nav/Handbag.svg"
@@ -120,10 +109,21 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="#contact">
+            <a href="#testimonials">
               <Image
                 src="/assets/mobile_nav/Chat_Conversation.svg"
                 alt="Chat"
+                width={34}
+                height={34}
+                className="filter invert-[1] brightness-[85%]"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#about">
+              <Image
+                src="/assets/mobile_nav/Info.svg"
+                alt="About"
                 width={34}
                 height={34}
                 className="filter invert-[1] brightness-[85%]"
@@ -200,11 +200,10 @@ const Header = () => {
         </filter>
       </svg>
       <nav
-        className={`py-2 flex items-center justify-between max-w-[760px] mx-auto rounded-full transition-all duration-200 ease-in-out px-2  ${
-          isSticky
-            ? "liquid-glass max-w-[600px]"
-            : ""
-        }`}
+        className={`py-2 flex items-center justify-between max-w-[760px] mx-auto rounded-full transition-all duration-200 ease-in-out px-2  ${isSticky
+          ? "liquid-glass max-w-[600px]"
+          : ""
+          }`}
       >
         <a href="#home" className="z-10">
           <Image
@@ -216,13 +215,23 @@ const Header = () => {
         </a>
         <ul className="flex gap-5 text-white z-10">
           <li>
-            <a href="#about" className="">
-              À propos
+            <a href="#services" className="">
+              Services
             </a>
           </li>
           <li>
-            <a href="#services" className="">
-              Services
+            <a href="#portfolio" className="">
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a href="#testimonials" className="">
+              Avis
+            </a>
+          </li>
+          <li>
+            <a href="#about" className="">
+              À propos
             </a>
           </li>
           <li>

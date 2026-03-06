@@ -14,10 +14,10 @@ export default function Home() {
       <CustomCursor />
       <Header />
       <Hero />
-      <About />
       <Services />
       <Portfolio />
       <Testimonials />
+      <About />
       <Faq />
       <Footer />
     </>
