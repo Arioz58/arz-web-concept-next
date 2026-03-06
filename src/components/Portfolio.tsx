@@ -53,7 +53,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="flex flex-col items-center text-white mt-10 px-4 overflow-x-hidden mb-5"
+      className="flex flex-col items-center text-white mt-10 px-4 overflow-x-hidden pb-5"
     >
       <motion.h2
         className="text-3xl lg:text-4xl text-center mb-10"

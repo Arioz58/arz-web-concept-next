@@ -29,7 +29,7 @@ const Header = () => {
   }, []);
 
   return isMobile ? (
-    <header className="max-w-xs fixed bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-[50px] rounded-full flex items-center justify-center z-50">
+    <header className="max-w-xs fixed bottom-4 left-1/2 -translate-x-1/2 w-1/2 h-[50px] rounded-full flex items-center justify-center z-[30]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         role="presentation"
@@ -135,7 +135,7 @@ const Header = () => {
     </header>
   ) : (
     <motion.header
-      className={`fixed w-screen z-20 mt-3`}
+      className={`fixed w-screen z-[30] mt-3`}
       animate={{
         scale: isSticky ? 1.05 : 1,
       }}
