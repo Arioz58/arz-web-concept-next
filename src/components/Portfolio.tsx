@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import oSecret from "@/assets/www.o-secret.fr_(iPhone SE).png";
-import tempTFTM from "@/assets/TFTM.png";
-import tempINdex from "@/assets/INdex.png";
-import tempHouse from "@/assets/House.png";
+import { projects, featuredProject } from "@/lib/projects";
+
+// Réalisations affichées dans le bandeau défilant (toutes sauf la vedette).
+const marqueeProjects = projects.filter((p) => p.id !== featuredProject.id);
 
 const ZIGZAG_POINTS = (() => {
   const cx = 50, cy = 50, outerR = 47, innerR = 40, teeth = 24;
@@ -27,27 +28,6 @@ function ZigzagShape() {
     />
   );
 }
-
-const projects = [
-  {
-    id: "tftm",
-    title: "TFTM",
-    description: "Site web sur mesure",
-    image: tempTFTM,
-  },
-  {
-    id: "index",
-    title: "INdex",
-    description: "Site web sur mesure",
-    image: tempINdex,
-  },
-  {
-    id: "house",
-    title: "House",
-    description: "Site web sur mesure",
-    image: tempHouse,
-  },
-];
 
 export default function Portfolio() {
   return (
@@ -106,7 +86,7 @@ export default function Portfolio() {
           </motion.div>
 
         <motion.a
-          href="https://o-secret.fr"
+          href={featuredProject.url}
           target="_blank"
           rel="noopener noreferrer"
           className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#0d0d0d] flex flex-col md:flex-row h-[320px] md:h-[240px] cursor-pointer"
@@ -123,27 +103,28 @@ export default function Portfolio() {
           <div className="flex flex-col justify-between p-6 z-10 flex-1">
             <div>
               <span className="text-xs text-[#b36fd1] font-mono uppercase tracking-widest">
-                Restauration rapide·Mulhouse
+                {featuredProject.tag}
               </span>
               <h3 className="text-2xl font-bold mt-1 group-hover:text-[#b36fd1] transition-colors duration-300">
-                O-Secret
+                {featuredProject.title}
               </h3>
               <p className="text-white/60 text-sm mt-2 font-[Poppins,sans-serif]">
-                Site de commande en ligne pour un restaurant Tacos, Burgers
-                &amp; Brunchs. Design moderne, optimisé mobile et SEO.
+                {featuredProject.description}
               </p>
             </div>
-            <span className="text-xs text-white/40 group-hover:text-white/70 transition-colors duration-300 mt-4">
-              o-secret.fr →
-            </span>
+            {featuredProject.url && (
+              <span className="text-xs text-white/40 group-hover:text-white/70 transition-colors duration-300 mt-4">
+                {featuredProject.url.replace(/^https?:\/\//, "")} →
+              </span>
+            )}
           </div>
 
           {/* Phone mockup */}
           <div className="relative w-full md:w-[120px] shrink-0 flex items-end justify-center overflow-hidden">
             <div className="relative w-[90px] h-[200px] rounded-t-[20px] overflow-hidden border shadow-xl shadow-black/50 mb-0 mt-auto mx-auto md:mx-0 md:mr-6">
               <Image
-                src={oSecret}
-                alt="O-Secret website screenshot"
+                src={featuredProject.image}
+                alt={`Aperçu du site ${featuredProject.title}`}
                 fill
                 className="object-cover object-top"
                 sizes="90px"
@@ -153,35 +134,64 @@ export default function Portfolio() {
         </motion.a>
         </div>
 
-        {/* Other projects grid */}
-        <div className="grid grid-cols-3 gap-4">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.id}
-              className="relative rounded-3xl overflow-hidden border border-white/10 bg-[#0d0d0d] flex flex-col h-[180px]"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="relative flex-1 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover object-top opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                  sizes="(max-width: 768px) 33vw, 200px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] to-transparent" />
-              </div>
-              <div className="p-3 z-10">
-                <h3 className="text-sm font-bold">{project.title}</h3>
-                <p className="text-white/40 text-xs">{project.description}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Bandeau défilant des autres réalisations */}
+        <div
+          className="group relative w-full overflow-hidden py-1"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+            {[...marqueeProjects, ...marqueeProjects].map((project, i) => {
+              const isLink = Boolean(project.url);
+              return (
+                <a
+                  key={`${project.id}-${i}`}
+                  href={project.url ?? "/realisations"}
+                  target={isLink ? "_blank" : undefined}
+                  rel={isLink ? "noopener noreferrer" : undefined}
+                  aria-hidden={i >= marqueeProjects.length}
+                  className="group/card relative shrink-0 mr-4 w-[180px] h-[120px] rounded-2xl overflow-hidden border border-white/10 bg-[#0d0d0d]"
+                >
+                  <Image
+                    src={project.image}
+                    alt={`Aperçu du site ${project.title}`}
+                    fill
+                    className="object-cover object-top opacity-70 transition-all duration-300 group-hover/card:opacity-100 group-hover/card:scale-105"
+                    sizes="180px"
+                    draggable={false}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/20 to-transparent" />
+                  <span className="absolute bottom-2 left-3 text-sm font-bold">
+                    {project.title}
+                  </span>
+                </a>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Lien vers la page dédiée listant toutes les réalisations */}
+        <motion.div
+          className="flex justify-center mt-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link
+            href="/realisations"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-2.5 text-sm text-white/80 transition-colors duration-300 hover:border-[#b36fd1] hover:text-white"
+          >
+            Voir toutes nos réalisations
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

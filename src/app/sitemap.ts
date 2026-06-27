@@ -6,5 +6,9 @@ export default function sitemap():MetadataRoute.Sitemap {
             url: "https://arzwebconcept.com",
             lastModified: new Date(),
         },
+        {
+            url: "https://arzwebconcept.com/realisations",
+            lastModified: new Date(),
+        },
     ]
 }
